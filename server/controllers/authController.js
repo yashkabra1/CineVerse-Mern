@@ -47,6 +47,7 @@ export const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      role: "user",
     });
 
     res.status(201).json({
@@ -119,3 +120,10 @@ export const login = async (req, res) => {
     });
   }
 };
+
+export const getProfile = async (req, res) => {
+  res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+  };
